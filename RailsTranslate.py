@@ -1,7 +1,7 @@
 import sublime, sublime_plugin, unicodedata, re, string, ntpath
 
 def strip_accents(s):
-  return ''.join((c for c in unicodedata.normalize('NFD', unicode(s)) if unicodedata.category(c) != 'Mn'))
+  return ''.join((c for c in unicodedata.normalize('NFD', str(s)) if unicodedata.category(c) != 'Mn'))
 
 def remove_nonword_chars(s):
   return re.sub('[\W]+', '_', re.sub('[\_]{2,}', '', s))
